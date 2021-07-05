@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Kobyg\Downloads\glfw-3.3.3\glfw-3.3.3\tests\empty.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Kobyg\Downloads\glfw-3.3.3\glfw-3.3.3\deps\tinycthread.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Kobyg\Downloads\glfw-3.3.3\glfw-3.3.3\deps\glad_gl.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Kobyg\Downloads\glfw-3.3.3\glfw-3.3.3\deps\tinycthread.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Kobyg\Downloads\glfw-3.3.3\glfw-3.3.3\deps\glad\gl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Kobyg\Downloads\glfw-3.3.3\glfw-3.3.3\tests\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{70235F84-A145-3D7B-8325-167CBD8C4273}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{3014CAFC-68EC-3AD9-888A-79AE233FBFD4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
