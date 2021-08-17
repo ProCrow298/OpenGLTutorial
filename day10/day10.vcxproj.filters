@@ -23,8 +23,11 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="README.md">
+    <None Include="fragmentShader.glsl">
       <Filter>Resource Files</Filter>
-    </Text>
+    </None>
+    <None Include="vertexShader.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
