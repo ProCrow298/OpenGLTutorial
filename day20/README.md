@@ -1,9 +1,9 @@
-# day19
+# day20
 
 
 # log
-Continued work with the coordinate systems
-Almost finished, will move onto the lighting stuff shortly
+Finished the 'getting started' chapters. 
+Moving onto lighting. 
 
 
 # libraries
