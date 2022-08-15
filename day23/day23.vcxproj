@@ -142,7 +142,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Downloads\glad\src\glad.c" />
+    <ClCompile Include="..\shared\glad\src\glad.c" />
     <ClCompile Include="source.cpp" />
     <ClCompile Include="stb_image.cpp" />
   </ItemGroup>

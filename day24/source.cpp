@@ -1,6 +1,6 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-
+#include <glm/vec2.hpp>
 #include <iostream>
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
@@ -41,22 +41,22 @@ int main()
 
     // render loop
     // -----------
-    while (!glfwWindowShouldClose(window))
+    
+
+    glm::vec2 st = glm::vec2(-.1, .7);
+    st = glm::vec2(.5) - st;
+    std::cout << st.x << " " << st.y << std::endl;
+
+   /* for (float i = 0.0; i <= 1.1; i += .1)
     {
-        // input
-        // -----
-        processInput(window);
+        glm::vec2 st = glm::vec2(i, i);
+        st = glm::vec2(.5) - st;
+        std::cout << i << " ";
+        std::cout << st.x << " " << st.y << std::endl;
+    }*/
 
-        // render
-        // ------
-        glClearColor(0.2f, 0.0f, 0.2f, 0.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
-
-        // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
-        // -------------------------------------------------------------------------------
-        glfwSwapBuffers(window);
-        glfwPollEvents();
-    }
+ 
+  
 
     // glfw: terminate, clearing all previously allocated GLFW resources.
     // ------------------------------------------------------------------
