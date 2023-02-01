@@ -80,8 +80,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)..\shared\glad\include;$(SolutionDir)..\shared\glfw-3.3.4\include;$(SolutionDir)..\shared\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)..\shared\glfw-3.3.4\build\src\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)..\shared\glad\include;$(SolutionDir)..\shared\glfw-3.3.8\include;$(SolutionDir)..\shared\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)..\shared\glfw-3.3.8\build\src\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
