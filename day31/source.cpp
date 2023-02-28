@@ -38,6 +38,7 @@ int main()
 {
     // initialize glfw
     glfwInit();
+    glfwWindowHint(GLFW_SAMPLES, 16);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
@@ -117,9 +118,9 @@ int main()
     glEnableVertexAttribArray(0);
 
     int resolution = 50;
-    float step = 2.0f / resolution;
-    glm::vec3 scale = glm::vec3(1.0f) * step;
     int points = pow(resolution, 2);
+    float step = 2.0f / resolution;
+    float v = 0.5f * step - 1.0f;
 
     // render loop
     while (!glfwWindowShouldClose(window))
@@ -133,7 +134,7 @@ int main()
         glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-        shader.use();
+        
 
         // camera view/projection transformations
         glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom),
@@ -143,38 +144,34 @@ int main()
         shader.setMat4("view", view);
 
         // render boxes
-        glBindVertexArray(VAO); 
+        glBindVertexArray(VAO);
 
-        for (int i = 0; i < points; i++)
+        for (int i = 0, x = 0, z = 0; i < points; i++, x++)
         {
-            float u = (i + 0.5f) * step - 1.0f;
-            float x = sin(PI_F * u);
-            float y = 0.0f;
-            float z = cos(PI_F * u);
+            if (x == resolution)
+            {
+                x = 0;
+                z += 1.0f;
+                v = (z + 0.5f) * step - 1.0f;
+            }
+            float u = (x + 0.5f) * step - 1.0f;
+            
+            float r = 0.9f + 0.1f * sin(PI_F);// *glfwGetTime());
+            float s = r * cos(0.5f * PI_F * v);
+
+            float xPos = s * sin(PI_F * u);
+            float yPos = r * sin(PI_F * 0.5f * v);
+            float zPos = s * cos(PI_F * u);
+
             glm::mat4 model = glm::mat4(1.0f);
-            model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(1.0f, 0.0f, 0.0f));
-            model = glm::translate(model, glm::vec3(x, y, z));
+            model = glm::translate(model, glm::vec3(xPos, yPos, zPos));
             model = glm::scale(model, glm::vec3(step, step, step));
             shader.setMat4("model", model);
+            shader.setFloat("u_time", glfwGetTime());
+            shader.use();
 
             glDrawArrays(GL_TRIANGLES, 0, 36);
         }
-
-        for (int i = 0; i < points; i++)
-        {
-            float u = (i + 0.5f) * step - 1.0f;
-            float x = sin(PI_F * u);
-            float y = 0.0f;
-            float z = cos(PI_F * u);
-            glm::mat4 model = glm::mat4(1.0f);
-            model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(-1.0f, 1.0f, 1.0f));
-            model = glm::translate(model, glm::vec3(x, y, z));
-            model = glm::scale(model, glm::vec3(step, step, step));
-            shader.setMat4("model", model);
-
-            glDrawArrays(GL_TRIANGLES, 0, 36);
-        }
-
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
